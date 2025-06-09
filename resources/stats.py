@@ -1,11 +1,13 @@
 from flask.views import MethodView
 from db import tasks
 from datetime import date, datetime
+from flask_smorest  import Blueprint , abort 
 
+blp = Blueprint("stats" , __name__ , description="Operations on stats")
 
-
-
+@blp.route("/stats")
 class StatsResource(MethodView):
+    @blp.response(200)
     def get(self):
         completed_count = 0
         pending_count = 0
