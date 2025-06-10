@@ -16,6 +16,8 @@ class TaskListResources(MethodView):
         completed = request.args.get("completed")
 
         if completed is not None:
+            if completed.lower() not in ["true", "false"]:
+                return {"error": "Invalid value for 'completed'. Use 'true' or 'false'."}, 400
             is_completed = completed.lower() == "true"
 
             filtered_tasks = {task_id : task for task_id , task in tasks.items() if task["completed"] == is_completed}
