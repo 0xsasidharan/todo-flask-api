@@ -11,7 +11,7 @@ blp = Blueprint("tasks" , __name__ , description="Operations on tasks")
 
 @blp.route("/tasks")
 class TaskListResources(MethodView):
-    @blp.response(200)
+    @blp.response(200, TaskSchema(many=True))
     def get(self):
         completed = request.args.get("completed")
 
@@ -19,7 +19,7 @@ class TaskListResources(MethodView):
             if completed.lower() not in ["true", "false"]:
                 return {"error": "Invalid value for 'completed'. Use 'true' or 'false'."}, 400
             is_completed = completed.lower() == "true"
-
+       
             filtered_tasks = {task_id : task for task_id , task in tasks.items() if task["completed"] == is_completed}
             return {"tasks" : list(filtered_tasks.values())} , 200
 
@@ -44,7 +44,7 @@ class TaskListResources(MethodView):
 
 @blp.route("/tasks/<string:task_id>")
 class TaskResource(MethodView):
-    @blp.response(200)
+    @blp.response(200 , TaskSchema)
     def get(self ,task_id):
         try:
             return tasks[task_id] , 200
