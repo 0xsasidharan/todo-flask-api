@@ -1,0 +1,21 @@
+version: '3'
+services:
+  web1:
+    build: .
+    image: todo-flask-api
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+
+
+  # If incase you want to run mutliple containers 
+  # using the same image but on different ports.
+
+
+  # web2:
+  #   image: todo-flask-api
+  #   ports:
+  #     - "5001:5000"
+  #   volumes:
+  #     - .:/app
