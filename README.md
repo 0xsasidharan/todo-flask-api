@@ -32,7 +32,7 @@ It uses **Flask-Smorest**, **MethodView**, and **Marshmallow** for input validat
 | 6   | Add Marshmallow Schemas                | ✅ Done   |
 | 7   | Add Flask-Smorest (Swagger docs)       | ✅ Done   |
 | 8   | Add Docker Containerization            | ✅ Done   |
-| 9   | Database Integration                   | ⬜ Pending |
+| 9   | Database Integration                   | ✅ Done   |
 | 10  | JWT Authentication                     | ⬜ Pending |
 
 ---

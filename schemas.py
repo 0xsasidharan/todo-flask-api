@@ -1,7 +1,7 @@
 from marshmallow import Schema , fields
 
 class TaskSchema(Schema):
-    task_id = fields.Str(dump_only=True)
+    task_id = fields.Integer(dump_only=True)
     name = fields.Str(required=True)
     due_date = fields.Str(required=True)
     description = fields.Str()
