@@ -46,7 +46,7 @@ class TaskListResources(MethodView):
         return new_task
 
 
-@blp.route("/tasks/<string:task_id>")
+@blp.route("/tasks/<int:task_id>")
 class TaskResource(MethodView):
     @blp.response(200 , TaskSchema)
     def get(self ,task_id):
